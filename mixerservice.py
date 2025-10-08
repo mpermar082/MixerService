@@ -17,7 +17,10 @@ class MixerService:
         self.logger = self._setup_logging()
         
     def _setup_logging(self) -> logging.Logger:
-        """Configure logging based on verbosity."""
+        """
+        Configure logging based on verbosity.
+        This method sets up a logger instance with a stream handler and a custom formatter.
+        """
         logger = logging.getLogger(__name__)
         level = logging.DEBUG if self.verbose else logging.INFO
         logger.setLevel(level)
@@ -29,7 +32,10 @@ class MixerService:
         return logger
         
     def run(self) -> bool:
-        """Main execution method."""
+        """
+        Main execution method.
+        This method contains the core logic of the application.
+        """
         try:
             self.logger.info("Starting MixerService processing")
             # Add your main logic here
@@ -40,7 +46,10 @@ class MixerService:
             return False
 
 def main():
-    """Command line entry point."""
+    """
+    Command line entry point.
+    This function parses command line arguments and creates an instance of MixerService.
+    """
     parser = argparse.ArgumentParser(description="MixerService - A powerful utility")
     parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose logging')
     args = parser.parse_args()
