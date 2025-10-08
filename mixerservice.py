@@ -12,13 +12,19 @@ class MixerService:
     """Main class for MixerService functionality."""
     
     def __init__(self, verbose: bool = False):
-        """Initialize with verbosity setting."""
+        """
+        Initialize with verbosity setting.
+        
+        :param verbose: Enable verbose logging
+        :type verbose: bool, optional
+        """
         self.verbose = verbose
         self.logger = self._setup_logging()
         
     def _setup_logging(self) -> logging.Logger:
         """
         Configure logging based on verbosity.
+        
         This method sets up a logger instance with a stream handler and a custom formatter.
         """
         logger = logging.getLogger(__name__)
@@ -34,7 +40,11 @@ class MixerService:
     def run(self) -> bool:
         """
         Main execution method.
+        
         This method contains the core logic of the application.
+        
+        :return: Execution status
+        :rtype: bool
         """
         try:
             self.logger.info("Starting MixerService processing")
@@ -48,6 +58,7 @@ class MixerService:
 def main():
     """
     Command line entry point.
+    
     This function parses command line arguments and creates an instance of MixerService.
     """
     parser = argparse.ArgumentParser(description="MixerService - A powerful utility")
